@@ -1,0 +1,22 @@
+<head>
+<%= link_to "Post a picture", new_post_path , method: :get %>
+
+
+</head>
+
+<body>
+  <div class="user-images">
+<% @posts.each do |post| %>
+<div class="item">
+  <%= image_tag post.picture.url if post.picture? %>
+
+  <span class="caption">Posted by <b><%= User.find_by(id: post.user_id).username %></b> on: <%= post.created_at.strftime("%d-%m-%Y") %>
+  <%= link_to "Delete", post, method: :delete,
+                                       data: { confirm: "You sure?" } %></span>
+<br>
+<textarea placeholder="write a comment!"></textarea>
+                                       </div>
+
+<% end %>
+</div>
+</body>

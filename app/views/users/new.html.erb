@@ -1,0 +1,26 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+<%= form_for @user, url: {action: "create"} do |f| %>
+<%= render 'shared/error_messages' %>
+
+
+    <%= f.label :username %>
+    <%= f.text_field :username%>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password%>
+
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation%>
+
+    <%= f.submit "Create my account"%>
+  <% end %>
+  <p>Already signed up? <%= link_to "Log in now!", login_path %></p>

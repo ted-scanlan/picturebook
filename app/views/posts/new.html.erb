@@ -1,0 +1,7 @@
+<%= form_for(@post) do |f| %>
+
+  <%= f.submit "Post" %>
+  <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
+<% end %>

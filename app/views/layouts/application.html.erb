@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+
+
+    <nav class="navbar navbar-light bg-light d-flex">
+      <ul class="nav navbar-nav navbar-right">
+
+       <div class="logo">
+         <a class="navbar-brand" href="#">
+           Picturebook
+         </a>
+       </div>
+       <div class="user-section">
+         <a><i class="fa fa-compass"></i></a>
+        <a> <%= link_to "Log out", logout_path , method: :get %></a>
+         <!-- <a><i class="fa fa-compass"></i></a>
+         <a><i class="fa fa-heart"></i></a>
+         <a><i class="fa fa-user"></i></a> -->
+       </div>
+
+     </ul>
+</nav>
+<main class="container" style="min-height: 500px;">
+      <%= yield %>
+    </main>
+
+  </body>
+</html>
